@@ -3,6 +3,6 @@ This repository is for the paper *__WatchYourMouth: Silent Speech Recognition wi
 
 ## To-Do List
 
-- [ ] Code Release
+- [ ] Code Release (eta May 24)
 - [ ] Dataset Release
 - [ ] Prepare Colab Tutorial
