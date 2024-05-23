@@ -1,5 +1,5 @@
 # Code adapted from PSTTransformer by Hehe Fan
-# GitHub: https://github.com/hehefan/PST-Transformer/blob/main/modules/transformer_v1.py
+# GitHub: https://github.com/hehefan/PST-Transformer/blob/main/modules/point_4d_convolution.py
 # Accessed on May 23, 2024
 
 import torch
