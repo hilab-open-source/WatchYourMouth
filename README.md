@@ -4,7 +4,7 @@ This repository is for the paper *__WatchYourMouth: Silent Speech Recognition wi
 ## To-Do List
 
 - [x] Code Release
-- [ ] Tutorial Document
+- [ ] Tutorial Document (eta may 30)
 - [ ] Dataset Release
 
 
