@@ -3,6 +3,14 @@ This repository is for the paper *__WatchYourMouth: Silent Speech Recognition wi
 
 ## To-Do List
 
-- [ ] Code Release (eta May 24)
+- [x] Code Release
+- [ ] Tutorial Document
 - [ ] Dataset Release
-- [ ] Prepare Colab Tutorial
+
+
+## References
+- P4Transformer: https://github.com/hehefan/P4Transformer
+- Point Spatio-Temporal Transformer: https://github.com/hehefan/PST-Transformer
+- PointNet: https://github.com/charlesq34/pointnet
+- PointNet++: https://github.com/charlesq34/pointnet2
+- LipNet-Pytorch: https://github.com/VIPL-Audio-Visual-Speech-Understanding/LipNet-PyTorch
