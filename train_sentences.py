@@ -211,7 +211,7 @@ def parse_args():
     parser.add_argument('--train-dataset', default='Sentences/TrainTest_Cross/Train_cross2.txt', type=str)
     parser.add_argument('--test-dataset', default='Sentences/TrainTest_Cross/Test_cross2.txt', type=str)
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--model', default='PSTTransformer', type=str)
+    parser.add_argument('--model', default='DepthSpeechRecognition', type=str)
     parser.add_argument('--save-model', default='./Log/checkpoints/', type=str)
     parser.add_argument('--save-loss', default='./Log/checkpoints/loss.txt', type=str)
     parser.add_argument('--save-performance', default='./Log/checkpoints/best_performance.json', type=str)
