@@ -16,7 +16,6 @@ from datasets.wym_ctc_sentences import MouthActionSentence3D
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
 import models.sentence_classification as Models
-import wandb
 
 def main(args):
     np.random.seed(args.seed)
@@ -26,12 +25,6 @@ def main(args):
     torch.backends.cudnn.benchmark = True
 
     textblob.en.spelling.update({"upcoming":100000})
-
-    wandb.init(
-        project="multi_modality_sentence_recognition",
-        config=args,
-        name='sentence_within5_ctc/attention',
-    )
 
     device = torch.device('cuda')
 
@@ -199,24 +192,9 @@ def main(args):
             if val_loss < best_val_loss:
                 print('Model Improved! Save the current Model!')
                 best_val_loss = val_loss
-                torch.save(model.module.state_dict(), args.save_model+'model_sentence.pth')
                 with open(args.save_loss, 'w') as f:
                     f.write('best evaluation loss:'+str(best_val_loss))
-            wandb.log(
-            {
-                "train_loss": train_loss,
-                "lr": optimizer.param_groups[0]['lr'],
-                "var_loss": val_loss,
-                "cer": cer,
-                "wer": wer,
-                "best_cer":best_cer,
-                "best_wer":best_wer,
-                "cer_corr": cer_corr,
-                "wer_corr": wer_corr,
-                "best_cer_corr":best_cer_corr,
-                "best_wer_corr":best_wer_corr
-            }
-            )
+
             torch.save(model.module.state_dict(), args.save_model+'model_sentence_current.pth')
             print(f'Epoch {epoch} Test Loss: {val_loss}')
             print(f'Word Error Rate: {wer}, Character Error Rate: {cer}')
