@@ -1,3 +1,7 @@
+# Code adapted from PSTTransformer by Hehe Fan
+# GitHub: https://github.com/hehefan/PST-Transformer/blob/main/modules/transformer_v1.py
+# Accessed on May 23, 2024
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -178,95 +182,3 @@ class P4DConv(nn.Module):
         new_features = torch.stack(tensors=new_features, dim=1)
         # print(time.time()-start)
         return new_xyzs, new_features
-
-# class P4DTransConv(nn.Module):
-#     def __init__(self,
-#                  in_planes: int,
-#                  mlp_planes: List[int],
-#                  mlp_batch_norm: List[bool],
-#                  mlp_activation: List[bool],
-#                  original_planes: int = 0,
-#                  bias: bool = False):
-#         """
-#         Args:
-#             in_planes: C'. when point features are not available, in_planes is 0.
-#             out_planes: C"
-#             original_planes: skip connection from original points. when original point features are not available, original_in_planes is 0.
-#             bias: whether to use bias
-#             batch_norm: whether to use batch norm
-#             activation:
-#         """
-#         super().__init__()
-
-#         self.in_planes = in_planes
-#         self.mlp_planes = mlp_planes
-#         self.mlp_batch_norm = mlp_batch_norm
-
-#         conv = []
-#         for i in range(len(mlp_planes)):
-#             if i == 0:
-#                 conv.append(nn.Conv1d(in_channels=in_planes+original_planes, out_channels=mlp_planes[i], kernel_size=1, stride=1, padding=0, bias=bias))
-#             else:
-#                 conv.append(nn.Conv1d(in_channels=mlp_planes[i-1], out_channels=mlp_planes[i], kernel_size=1, stride=1, padding=0, bias=bias))
-#             if mlp_batch_norm[i]:
-#                 conv.append(nn.BatchNorm1d(num_features=mlp_planes[i]))
-#             if mlp_activation[i]:
-#                 conv.append(nn.ReLU(inplace=True))
-#         self.conv = nn.Sequential(*conv)
-
-#     def forward(self, xyzs: torch.Tensor, original_xyzs: torch.Tensor, features: torch.Tensor, original_features: torch.Tensor = None) -> torch.Tensor:
-#         r"""
-#         Parameters
-#         ----------
-#         xyzs : torch.Tensor
-#             (B, T, N', 3) tensor of the xyz positions of the convolved features
-#         original_xyzs : torch.Tensor
-#             (B, T, N, 3) tensor of the xyz positions of the original points
-#         features : torch.Tensor
-#             (B, T, C', N') tensor of the features to be propigated to
-#         original_features : torch.Tensor
-#             (B, T, C, N) tensor of original point features for skip connection
-
-#         Returns
-#         -------
-#         new_features : torch.Tensor
-#             (B, T, C", N) tensor of the features of the unknown features
-#         """
-
-#         T = xyzs.size(1)
-
-#         xyzs = torch.split(tensor=xyzs, split_size_or_sections=1, dim=1)
-#         xyzs = [torch.squeeze(input=xyz, dim=1).contiguous() for xyz in xyzs]
-
-#         features = torch.split(tensor=features, split_size_or_sections=1, dim=1)
-#         features = [torch.squeeze(input=feature, dim=1).contiguous() for feature in features]
-
-#         new_xyzs = original_xyzs
-
-#         original_xyzs = torch.split(tensor=original_xyzs, split_size_or_sections=1, dim=1)
-#         original_xyzs = [torch.squeeze(input=original_xyz, dim=1).contiguous() for original_xyz in original_xyzs]
-
-#         if original_features is not None:
-#             original_features = torch.split(tensor=original_features, split_size_or_sections=1, dim=1)
-#             original_features = [torch.squeeze(input=feature, dim=1).contiguous() for feature in original_features]
-
-#         new_features = []
-
-#         for t in range(T):
-#             dist, idx = pointnet2_utils.three_nn(original_xyzs[t], xyzs[t])
-
-#             dist_recip = 1.0 / (dist + 1e-8)
-#             norm = torch.sum(dist_recip, dim=2, keepdim=True)
-#             weight = dist_recip / norm
-
-#             interpolated_feat = pointnet2_utils.three_interpolate(features[t], idx, weight)
-
-#             if original_features is not None:
-#                 new_feature = torch.cat([interpolated_feat, original_features[t]], dim=1)
-#             new_feature = self.conv(new_feature)
-#             new_features.append(new_feature)
-
-#         new_features = torch.stack(tensors=new_features, dim=1)
-
-#         return new_xyzs, new_features
-
