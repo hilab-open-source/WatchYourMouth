@@ -9,6 +9,7 @@ This repository is for the paper *__WatchYourMouth: Silent Speech Recognition wi
 
 
 ## References
+Here are some great resources we benefit:
 - P4Transformer: https://github.com/hehefan/P4Transformer
 - Point Spatio-Temporal Transformer: https://github.com/hehefan/PST-Transformer
 - PointNet: https://github.com/charlesq34/pointnet
