@@ -75,12 +75,12 @@ def main(args):
                   num_points=args.num_points,
                   dropout2=args.dropout2)
     
-    if any(os.scandir(args.save_model)):
-        print('Loading Model from checkpoints...')
-        weights = torch.load(args.save_model+'model.pth', map_location=device)
-        model.load_state_dict(weights)
-    else:
-        print('Creating Model from scratch...')
+    # if any(os.scandir(args.save_model)):
+    #     print('Loading Model from checkpoints...')
+    #     weights = torch.load(args.save_model+'model.pth', map_location=device)
+    #     model.load_state_dict(weights)
+    # else:
+    print('Creating Model from scratch...')
         
     if torch.cuda.device_count() > 1:
         model = nn.DataParallel(model)
@@ -241,6 +241,7 @@ def parse_args():
     parser.add_argument('-j', '--workers', default=32, type=int, metavar='N')
     parser.add_argument('--lr', default=1e-2, type=float)
     parser.add_argument('--momentum', default=0.9, type=float, metavar='M')
+    parser.add_argument('--wd', '--weight-decay', default=1e-4, type=float, metavar='W', help='weight decay (default: 1e-4)', dest='weight_decay')
 
     args = parser.parse_args()
 
