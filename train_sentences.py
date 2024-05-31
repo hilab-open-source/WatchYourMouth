@@ -236,7 +236,7 @@ def parse_args():
     # output
     parser.add_argument('--dropout2', default=0.5, type=float)
     # training
-    parser.add_argument('-b', '--batch-size', default=8, type=int)
+    parser.add_argument('-b', '--batch-size', default=8, type=int)  # At least 2 samples for each GPU
     parser.add_argument('--epochs', default=300, type=int, metavar='N')
     parser.add_argument('-j', '--workers', default=32, type=int, metavar='N')
     parser.add_argument('--lr', default=1e-2, type=float)
