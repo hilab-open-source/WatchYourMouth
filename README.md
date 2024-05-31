@@ -9,7 +9,7 @@
         <img src="https://img.shields.io/badge/Youtube%20Video-%23FF0000.svg?logo=YouTube&logoColor=white">
         </a>
         <a href="https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA?usp=sharing" target='_blank'>
-        <img src="https://img.shields.io/badge/Dataset-🗣️_Sentences-yellow">
+        <img src="https://img.shields.io/badge/Dataset-_Sentences-blue">
         </a>
     </h4>
 </div>
