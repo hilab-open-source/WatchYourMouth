@@ -2,9 +2,10 @@
 ![Teaser Image](./img/Teaser.png)
 <div>
     <h4 align="center">
-        <a href='https://xueewang.github.io/' target='_blank'>Xue Wang</a>&emsp;
-        <a href='https://www.shawnsu.net/' target='_blank'>Zixiong Su</a>&emsp;
-        <a href='https://lab.rekimoto.org/members/rekimoto/' target='_blank'>Jun Rekimoto</a>&emsp;
+        Authors:&nbsp
+        <a href='https://xueewang.github.io/' target='_blank'>Xue Wang</a>,&nbsp;
+        <a href='https://www.shawnsu.net/' target='_blank'>Zixiong Su</a>,&nbsp;
+        <a href='https://lab.rekimoto.org/members/rekimoto/' target='_blank'>Jun Rekimoto</a>,&nbsp;
         <a href='https://yangzhang.dev/' target='_blank'>Yang Zhang</a>
     </h4>
 </div>
