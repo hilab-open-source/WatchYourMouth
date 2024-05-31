@@ -8,9 +8,9 @@
         <a href="https://youtu.be/wm8CLepJaCg?si=H_7jVMJLF64Cmuf8" target='_blank'>
         <img src="https://img.shields.io/badge/Youtube%20Video-%23FF0000.svg?logo=YouTube&logoColor=white">
         </a>
-<!--         <a href="https://huggingface.co/spaces/sczhou/ProPainter" target='_blank'>
-        <img src="https://img.shields.io/badge/Demo-%F0%9F%A4%97%20Hugging%20Face-blue">
-        </a> -->
+        <a href="https://huggingface.co/spaces/sczhou/ProPainter" target='_blank'>
+        <img src="https://img.shields.io/badge/Dataset-🗣️_Sentences-yellow">
+        </a>
     </h4>
 </div>
 
@@ -20,8 +20,8 @@ Silent speech recognition is a promising technology that decodes human speech wi
 ## To-Do List
 
 - [x] Code Release
-- [ ] Tutorial Document (eta may 30)
-- [ ] Dataset Release
+- [x] Dataset Release
+- [ ] Tutorial Document (under testing)
 
 
 ## References
