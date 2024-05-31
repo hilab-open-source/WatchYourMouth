@@ -53,3 +53,5 @@ If you find our work useful in your research, please consider citing:
   year={2024}
 }
 ```
+## License
+This project is licensed under <a rel="license" href="./LICENSE">MIT License</a>. Redistribution and use should follow this license.
