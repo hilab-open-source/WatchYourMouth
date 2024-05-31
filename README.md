@@ -8,7 +8,7 @@
         <a href="https://youtu.be/wm8CLepJaCg?si=H_7jVMJLF64Cmuf8" target='_blank'>
         <img src="https://img.shields.io/badge/Youtube%20Video-%23FF0000.svg?logo=YouTube&logoColor=white">
         </a>
-        <a href="https://huggingface.co/spaces/sczhou/ProPainter" target='_blank'>
+<!--         <a href="https://huggingface.co/spaces/sczhou/ProPainter" target='_blank'> -->
         <img src="https://img.shields.io/badge/Dataset-🗣️_Sentences-yellow">
         </a>
     </h4>
