@@ -2,7 +2,7 @@
 ![Teaser Image](./img/Teaser.png)
 <div>
     <h4 align="center">
-        <a href="】https://dl.acm.org/doi/10.1145/3613904.3642092" target='_blank'>
+        <a href="https://dl.acm.org/doi/10.1145/3613904.3642092" target='_blank'>
         <img src="https://img.shields.io/badge/CHI_2024-Paper-green">
         </a>
         <a href="https://youtu.be/wm8CLepJaCg?si=H_7jVMJLF64Cmuf8" target='_blank'>
