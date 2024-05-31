@@ -1,5 +1,5 @@
-# WatchYourMouth
-This repository is for the paper *__WatchYourMouth: Silent Speech Recognition with Depth Sensing__*
+# [WatchYourMouth: Silent Speech Recognition with Depth Sensing] (https://dl.acm.org/doi/full/10.1145/3613904.3642092)
+
 
 ## To-Do List
 
