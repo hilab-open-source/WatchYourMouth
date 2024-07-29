@@ -3,7 +3,7 @@ import difflib
 import numpy as np
 import editdistance
 import torch.nn.functional as F
-from ctcdecode import CTCBeamDecoder
+# from ctcdecode import CTCBeamDecoder
 from torchaudio.functional import edit_distance
 
 class Decoder:
@@ -22,16 +22,16 @@ class Decoder:
                          'INCREASE BRIGHTNESS', 'SET A TIMER', 'SEND AN EMAIL', 'WATCH NETFLIX',
                          'CALL MOM', 'TEXT DAD', 'WHAT TIME IS IT', 'WHAT IS THE WEATHER', 'OPEN TWITTER']
         
-        self._decoder = CTCBeamDecoder(['_@']+labels[1:],
-                                       model_path=None,
-                                       alpha=0,
-                                       beta=1,
-                                       cutoff_top_n=37,
-                                       cutoff_prob=0.99,
-                                       beam_width=200,
-                                       num_processes=10,
-                                       blank_id=0,
-                                       log_probs_input=False)
+        # self._decoder = CTCBeamDecoder(['_@']+labels[1:],
+        #                                model_path=None,
+        #                                alpha=0,
+        #                                beta=1,
+        #                                cutoff_top_n=37,
+        #                                cutoff_prob=0.99,
+        #                                beam_width=200,
+        #                                num_processes=10,
+        #                                blank_id=0,
+        #                                log_probs_input=False)
     
     def convert_to_string(self, tokens, seq_len=None):
         if not seq_len:
@@ -64,14 +64,14 @@ class Decoder:
             decoded.append(output_str)
         return decoded
     
-    def decode_beam(self, logits, seq_lens):
-        decoded = []
-        tlogits = logits.transpose(0, 1)
-        beam_result, beam_scores, timesteps, out_seq_len = self._decoder.decode(tlogits.softmax(-1), seq_lens)
-        for i in range(tlogits.size(0)):
-            output_str = ''.join(map(lambda x: self.vocab_list[x], beam_result[i][0][:out_seq_len[i][0]]))
-            decoded.append(output_str)
-        return decoded
+    # def decode_beam(self, logits, seq_lens):
+    #     decoded = []
+    #     tlogits = logits.transpose(0, 1)
+    #     beam_result, beam_scores, timesteps, out_seq_len = self._decoder.decode(tlogits.softmax(-1), seq_lens)
+    #     for i in range(tlogits.size(0)):
+    #         output_str = ''.join(map(lambda x: self.vocab_list[x], beam_result[i][0][:out_seq_len[i][0]]))
+    #         decoded.append(output_str)
+    #     return decoded
     
     def cer(self, decoded, gt):
         cer = [editdistance.eval(p[0].strip(), p[1].strip())/len(p[1].strip())
