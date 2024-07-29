@@ -31,9 +31,39 @@ Silent speech recognition is a promising technology that decodes human speech wi
 
 - [x] Code Release
 - [x] Dataset Release
-- [ ] Tutorial Document (under testing)
+- [x] Tutorial Document (Released)
 
+## Installation
+### STEP1: Create Environment
+```
+conda create -n <YourEnvName> python=3.8
+pip install tqdm textblob editdistance einops
+```
+To ensure compatibility between PyTorch and CUDA, you should first determine the version of CUDA installed on your system. You can do this by running the following command in your terminal:
+```
+nvcc --version
+```
+Once you have your CUDA version, visit the [PyTorch official installation guide](https://pytorch.org/get-started/previous-versions/) to find the PyTorch version that corresponds to your CUDA version, for example:
+```
+conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+### STEP2: Clone Repository
+```
+git clone https://github.com/hilab-open-source/WatchYourMouth.git
+```
+Install Pointnet2
+```
+cd WatchYourMouth/modules
+pip install .
+```
+### STEP3: Download the Dataset
+Please download the dataset [HERE](https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA) and store it in the directory.
 
+### STEP4: Start Training
+```
+cd WatchYourMouth/
+python train_sentences.py
+```
 ## References
 Here are some great resources we benefit:
 - P4Transformer: https://github.com/hehefan/P4Transformer
