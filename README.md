@@ -51,7 +51,7 @@ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=
 ```
 git clone https://github.com/hilab-open-source/WatchYourMouth.git
 ```
-Install Pointnet2
+Compile the [Pointnet2](https://github.com/facebookresearch/votenet/tree/main/pointnet2) CUDA layers with the following code:
 ```
 cd WatchYourMouth/modules
 pip install .
@@ -60,6 +60,7 @@ pip install .
 Please download the dataset [HERE](https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA) and store it in the directory.
 
 ### STEP4: Start Training
+Update the dataset path to the location where your dataset is stored in this [line](https://github.com/hilab-open-source/WatchYourMouth/blob/ebda2232ab9efbe4d31c941b694d9d8ca1172ff4/train_sentences.py#L210), and start training with the following code:
 ```
 cd WatchYourMouth/
 python train_sentences.py
