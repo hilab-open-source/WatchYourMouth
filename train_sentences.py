@@ -207,9 +207,9 @@ def main(args):
 def parse_args():
     parser = argparse.ArgumentParser(description='Sentence Point Cloud Lipreading')
 
-    parser.add_argument('--data-path', default='../WatchYourMouth2.0/UserStudy2.0/', type=str)
-    parser.add_argument('--train-dataset', default='Sentences/TrainTest_Cross/Train_cross2.txt', type=str)
-    parser.add_argument('--test-dataset', default='Sentences/TrainTest_Cross/Test_cross2.txt', type=str)
+    parser.add_argument('--data-path', default='path/to/your/dataset/', type=str)
+    parser.add_argument('--train-dataset', default='Sentences/Train.txt', type=str)
+    parser.add_argument('--test-dataset', default='Sentences/Test.txt', type=str)
     parser.add_argument('--seed', default=0, type=int)
     parser.add_argument('--model', default='DepthSpeechRecognition', type=str)
     parser.add_argument('--save-model', default='./Log/checkpoints/', type=str)
