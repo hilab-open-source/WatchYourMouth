@@ -34,7 +34,7 @@ Silent speech recognition is a promising technology that decodes human speech wi
 - [x] Tutorial Document (Released)
 
 ## Installation
-### STEP1: Create Environment
+#### STEP1: Create Environment
 ```
 conda create -n <YourEnvName> python=3.8
 pip install tqdm textblob editdistance einops
@@ -47,7 +47,7 @@ Once you have your CUDA version, visit the [PyTorch official installation guide]
 ```
 conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
 ```
-### STEP2: Clone Repository
+#### STEP2: Clone Repository
 ```
 git clone https://github.com/hilab-open-source/WatchYourMouth.git
 ```
@@ -56,10 +56,10 @@ Compile the [Pointnet2](https://github.com/facebookresearch/votenet/tree/main/po
 cd WatchYourMouth/modules
 pip install .
 ```
-### STEP3: Download the Dataset
+#### STEP3: Download the Dataset
 Please download the dataset [HERE](https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA) and store it in the directory.
 
-### STEP4: Start Training
+#### STEP4: Start Training
 Update the dataset path to the location where your dataset is stored in this [line](https://github.com/hilab-open-source/WatchYourMouth/blob/ebda2232ab9efbe4d31c941b694d9d8ca1172ff4/train_sentences.py#L210), and start training with the following code:
 ```
 cd WatchYourMouth/
