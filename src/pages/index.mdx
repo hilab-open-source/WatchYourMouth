@@ -2,7 +2,7 @@
 layout: ../layouts/Layout.astro
 title: "Watch Your Mouth: Silent Speech Recognition with Depth Sensing"
 description: "Watch Your Mouth: Silent Speech Recognition with Depth Sensing"
-favicon: IC_icon.svg
+favicon: WYM_icon.png
 thumbnail: website_preview_v2.png
 ---
 
@@ -19,7 +19,7 @@ import LaTeX from "../components/LaTeX.astro";
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
 import outside from "../assets/wym.mov";
-import transformer from "../assets/teaser_cloak.png";
+import transformer from "../assets/Teaser Figure.png";
 import Splat from "../components/Splat.tsx"
 import dogsDiffc from "../assets/dogs-diffc.png"
 import dogsTrue from "../assets/dogs-true.png"
@@ -106,7 +106,7 @@ Silent speech recognition is a promising technology that decodes human speech wi
 
 ## System Overview
 <Figure>
-  <Image slot="figure" source={transformer} altText="Our system consists of a smartwatch app that streams IMU signals and obfuscation requests to an edge device, which runs our user-device association algorithm." />
+  <Image slot="figure" source={transformer} altText="" />
   <span slot="caption" class="block text-left">
   Figure 1: Left: Watch Your Mouth performs silent speech recognition through depth sensing at three different sensor locations: On-Wrist, On-Head, In-Environment; Right: The deep learning architecture of Watch Your Mouth, N represents the number of points in each point cloud frame, L signifies the length of the video, 𝑠 denotes the sampling rate, 𝑅𝑠 and 𝑅𝑡 refer to the spatial radius and temporal kernel size, respectively. 𝐶 is the dimension of the transformer layer in this pipeline.
   </span>
