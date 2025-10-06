@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Layout.astro
-title: "Invisibility Cloak: Personalized Smartwatch-Guided Camera Obfuscation"
-description: "Invisibility Cloak: Personalized Smartwatch-Guided Camera Obfuscation"
+title: "Watch Your Mouth: Silent Speech Recognition with Depth Sensing"
+description: "Watch Your Mouth: Silent Speech Recognition with Depth Sensing"
 favicon: IC_icon.svg
 thumbnail: website_preview_v2.png
 ---
@@ -38,34 +38,61 @@ export const components = {pre: CodeBlock, table: Table}
       name: "Xue Wang",
       url: "https://xueewang.github.io/",
       institution: "University of California, Los Angeles",
+      notes: ["*"],
+    },
+    {
+      name: "Zixiong Su",
+      url: "https://www.shawnsu.net/",
+      institution: "The University of Tokyo",
+      notes: ["†"],
+    },
+    {
+      name: "Jun Rekimoto",
+      url: "https://lab.rekimoto.org/members/rekimoto/",
+      institution: "The University of Tokyo, Sony CSL Kyoto",
+      notes: ["†", "‡"],
     },
     {
       name: "Yang Zhang",
       url: "https://yangzhang.dev/",
       institution: "University of California, Los Angeles",
+      notes: ["*"],
     },
   ]}
-  
-  conference="ACM UIST 2025, Busan, Korea"
+  conference="ACM CHI 2024, Hawaii, USA"
+  notes={[
+    {
+      symbol: "*",
+      text: "author note one",
+    },
+    {
+      symbol: "†",
+      text: "author note two",
+    },
+    {
+      symbol: "‡",
+      text: "author note two",
+    },
+  ]}
   links={[
     {
       name: "Paper",
-      url: "https://hilab.dev/research/InvisibilityCloak/InvisibilityCloak.pdf",
+      url: "https://xueewang.github.io/files/WatchYourMouth.pdf",
       icon: "ri:file-pdf-2-line",
     },
     {
       name: "Code",
-      url: "https://github.com/hilab-open-source/InvisibilityCloak",
+      url: "https://github.com/hilab-open-source/WatchYourMouth",
       icon: "ri:github-line",
     },
     {
       name: "Video",
-      url: "https://youtu.be/-UlUI3DfKUE?si=aFX4f0ZA3DlZrtTv",
+      url: "https://youtu.be/wm8CLepJaCg?si=ybcWvGxI9bqqrcHy",
       icon: "ri:live-line",
     },
     {
       name: "Dataset",
-      url: "https://drive.google.com/drive/folders/1caPPtjg4dHysmkLXPLz_XsJEdVblDA6h?usp=drive_link",
+      url: "https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA",
       icon: "ri:hard-drive-3-line"
     }
   ]}
