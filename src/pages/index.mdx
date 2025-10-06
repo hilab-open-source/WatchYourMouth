@@ -24,7 +24,10 @@ import Splat from "../components/Splat.tsx"
 import dogsDiffc from "../assets/dogs-diffc.png"
 import dogsTrue from "../assets/dogs-true.png"
 import association from "../assets/association_flat.png"
-import evalResults from "../assets/eval_results.png"
+import evalResults from "../assets/Sentence Within ER.png"
+import collection from ""../assets/Study Setup.png"
+import commands from "../assets/commands cd and viseme length.png"
+import compare from "../assets/comparative.png"
 
 
 import CodeBlock from "../components/CodeBlock.astro";
@@ -107,21 +110,47 @@ Silent speech recognition is a promising technology that decodes human speech wi
 ## System Overview
 <Figure>
   <Image slot="figure" source={transformer} altText="" />
-  <span slot="caption" class="block text-middle">
-  Figure 1: Left: Watch Your Mouth performs silent speech recognition through depth sensing at three different sensor locations: On-Wrist, On-Head, In-Environment; Right: The deep learning architecture of Watch Your Mouth, $N$ represents the number of points in each point cloud frame, $L$ signifies the length of the video, $s$ denotes the sampling rate, $R_s$ and $R_t$ refer to the spatial radius and temporal kernel size, respectively. $C$ is the dimension of the transformer layer in this pipeline.
+  <span slot="caption" class="block text-left">
+  Figure 1: Left: Watch Your Mouth performs silent speech recognition through depth sensing at three different sensor locations: On-Wrist, On-Head, In-Environment; Right: The deep learning architecture of Watch Your Mouth, N represents the number of points in each point cloud frame, L signifies the length of the video, 𝑠 denotes the sampling rate, 𝑅𝑠 and 𝑅𝑡 refer to the spatial radius and temporal kernel size, respectively. 𝐶 is the dimension of the transformer layer in this pipeline.
   </span>
 </Figure>
 
-## System Evaluation
+## Data Collection
 <Figure>
-  <Image slot="figure" source={association} altText="IDP across the three evaluation configurations." />
+  <Image slot="figure" source={collection} altText="" />
   <span slot="caption" class="block text-left">
   Figure 2: IDP across the three evaluation configurations. Left: Within-user evaluation results on the In-Lab dataset across four scenarios. Middle: Cross-user evaluation on the In-Lab dataset, trained on data from 5 participants and tested on the remaining 5. Right: Cross-scene evaluation on the In-the-Wild dataset with different activity sets.
   </span>
 </Figure>
 
+We recruited a group of 10 participants (6 Females) to participate in our data collection process. Additionally, 5 of the participants wore glasses, and 2 participants were native English speakers without any discernible accents. Sequentially in the data collection, we placed our depth sensing device at three distinct sensor locations (Figure 2):
+
+- On Wrist: To replicate the conditions resembling the use of smartwatches, we strapped the iPhone to the user’s right wrist using Velcro straps.
+
+- On Head: To simulate scenarios where the device is worn on the head such as VR headset or AR glasses, we affixed the phone to a helmet using a phone holder. The phone was positioned approximately 25 cm in front of the user’s face.
+
+- In Environement: In this setup, we placed the iPhone on a table with a randomized tilt angle and distance, simulating the positioning of depth sensors that could be potentially integrated onto smart devices such as Google Nest.
+
+You can find the sentence dataset from here:
+<a
+  href="https://example.com/dataset"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="text-blue-500 hover:underline"
+>
+  Sentence Dataset
+</a>.
+
+## System Evaluation
 <Figure>
-  <Image slot="figure" source={evalResults} altText="IDP across the three evaluation configurations." />
+  <Image slot="figure" source={association} altText="" />
+  <span slot="caption" class="block text-left">
+  Figure 2: Three sensor locations in the user: On-Wrist (left), On-Head (middle), and In-Environment (right).
+  </span>
+</Figure>
+
+<Figure>
+  <Image slot="figure" source={evalResults} altText="" />
   <span slot="caption" class="block text-left">
   Figure 3: A) Effect of window length on user-device association. B) Effect of handedness on user-device association. C) Adjusted SUS Item Scores (0-4 scaled).
   </span>
