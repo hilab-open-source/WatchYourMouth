@@ -18,7 +18,7 @@ import LaTeX from "../components/LaTeX.astro";
 
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
-import outside from "../assets/website_video_cut.mp4";
+import outside from "../assets/WYM Video.mp4";
 import transformer from "../assets/teaser_cloak.png";
 import Splat from "../components/Splat.tsx"
 import dogsDiffc from "../assets/dogs-diffc.png"
@@ -102,13 +102,13 @@ export const components = {pre: CodeBlock, table: Table}
 
 ## Abstract
 
-Cameras are in their golden age due to recent advances in visual AI techniques that significantly extend the applicability and accuracy of vision-based applications including healthcare, entertainment, and security. In public environments, individuals usually have different and changing privacy preferences against their visual information being shared with other entities. To accommodate these varying user needs for visual privacy, we created ***Invisibility Cloak***, a camera obfuscation technique leveraging inertial signals collected from smartwatches to guide an edge device to remove visual information from camera recordings before they are streamed out for cloud-based inferences. Specifically, a smartwatch user can select an obfuscation level that fits their privacy preference in that context and cameras in the environment will use smartwatch signals to identify that user and remove visual information associated with the user. On the conceptual level, our system demonstrates a privacy design rationale which removes information to be shared with a broader internet infrastructure (i.e., cloud) by providing more information to a trusted local camera system (i.e., camera sensor + edge computing device). We developed a custom data-association pipeline and collected data from real-world configurations. Evaluation of our pipeline indicates a user identification accuracy of 95.48\% among 10 individuals when our system is provided with only 2 seconds of data. 
+Silent speech recognition is a promising technology that decodes human speech without requiring audio signals, enabling private human-computer interactions. In this paper, we propose Watch Your Mouth, a novel method that leverages depth sensing to enable accurate silent speech recognition. By leveraging depth information, our method provides unique resilience against environmental factors such as variations in lighting and device orientations, while further addressing privacy concerns by eliminating the need for sensitive RGB data. We started by building a deep-learning model that locates lips using depth data. We then designed a deep learning pipeline to efficiently learn from point clouds and translate lip movements into commands and sentences. We evaluated our technique and found it effective across diverse sensor locations: On-Head, On-Wrist, and In-Environment. Watch Your Mouth outperformed the state-of-the-art RGB-based method, demonstrating its potential as an accurate and reliable input technique.
 
 ## System Overview
 <Figure>
   <Image slot="figure" source={transformer} altText="Our system consists of a smartwatch app that streams IMU signals and obfuscation requests to an edge device, which runs our user-device association algorithm." />
   <span slot="caption" class="block text-left">
-  Figure 1: Our system consists of a smartwatch app that streams IMU signals and obfuscation requests to an edge device, which runs our user-device association algorithm. This system operates under the following standard security assumptions: all wearable devices are fully compatible with the local camera system, and data on the edge device is secure from unauthorized access and cyber-attacks prior to transmission to the cloud.
+  Figure 1: Left: Watch Your Mouth performs silent speech recognition through depth sensing at three different sensor locations: On-Wrist, On-Head, In-Environment; Right: The deep learning architecture of Watch Your Mouth, N represents the number of points in each point cloud frame, L signifies the length of the video, 𝑠 denotes the sampling rate, 𝑅𝑠 and 𝑅𝑡 refer to the spatial radius and temporal kernel size, respectively. 𝐶 is the dimension of the transformer layer in this pipeline.
   </span>
 </Figure>
 
