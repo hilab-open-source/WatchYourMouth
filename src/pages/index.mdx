@@ -119,45 +119,75 @@ Silent speech recognition is a promising technology that decodes human speech wi
 <Figure>
   <Image slot="figure" source={collection} altText="" />
   <span slot="caption" class="block text-left">
-  Figure 2: IDP across the three evaluation configurations. Left: Within-user evaluation results on the In-Lab dataset across four scenarios. Middle: Cross-user evaluation on the In-Lab dataset, trained on data from 5 participants and tested on the remaining 5. Right: Cross-scene evaluation on the In-the-Wild dataset with different activity sets.
+  Figure 2: We recruited a group of 10 participants (6 Females) to participate in our data collection process. Additionally, 5 of the participants wore glasses, and 2 participants were native English speakers without any discernible accents. Sequentially in the data collection, we placed our depth sensing device at three distinct sensor locations: On-Wrist (left), On-Head (middle), and In-Environment (right).
   </span>
 </Figure>
 
-We recruited a group of 10 participants (6 Females) to participate in our data collection process. Additionally, 5 of the participants wore glasses, and 2 participants were native English speakers without any discernible accents. Sequentially in the data collection, we placed our depth sensing device at three distinct sensor locations (Figure 2):
-
-- On Wrist: To replicate the conditions resembling the use of smartwatches, we strapped the iPhone to the user’s right wrist using Velcro straps.
-
-- On Head: To simulate scenarios where the device is worn on the head such as VR headset or AR glasses, we affixed the phone to a helmet using a phone holder. The phone was positioned approximately 25 cm in front of the user’s face.
-
-- In Environement: In this setup, we placed the iPhone on a table with a randomized tilt angle and distance, simulating the positioning of depth sensors that could be potentially integrated onto smart devices such as Google Nest.
-
-You can find the sentence dataset from here: [Sentence Dataset](https://your-url.example.com).
+You can find the point clouds sentence dataset from here: [Sentence Dataset](https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA).
 
 ## System Evaluation
 <Figure>
-  <Image slot="figure" source={association} altText="" />
+  <Image slot="figure" source={evalResults} altText="" />
   <span slot="caption" class="block text-left">
-  Figure 2: Three sensor locations in the user: On-Wrist (left), On-Head (middle), and In-Environment (right).
+  Figure 3: CER and WER from the within-user performance evaluation with error bars indicating standard deviations across folds.
   </span>
 </Figure>
 
 <Figure>
-  <Image slot="figure" source={evalResults} altText="" />
+  <Image slot="figure" source={compare} altText="" />
   <span slot="caption" class="block text-left">
-  Figure 3: A) Effect of window length on user-device association. B) Effect of handedness on user-device association. C) Adjusted SUS Item Scores (0-4 scaled).
+  Figure 4: Comparison of sentence recognition performances with different sensing modalities/models, breaking down on within- and cross-user train-test methods (left), and on sensor location (right). Error bars indicate standard deviations across participants.
   </span>
 </Figure>
 
+<Figure>
+  <Image slot="figure" source={commands} altText="" />
+  <span slot="caption" class="block text-left">
+  Figure 5: Left: Confusion Matrix of 5-fold within-user command recognition across 30 distinct commands. Accuracy is over 95% unless indicated otherwise. Right: Correlations between viseme length and recognition accuracy.
+  </span>
+</Figure>
 
+## Implementation
+#### STEP1: Create Environment
+```
+conda create -n <YourEnvName> python=3.8
+pip install tqdm textblob editdistance einops
+```
+To ensure compatibility between PyTorch and CUDA, you should first determine the version of CUDA installed on your system. You can do this by running the following command in your terminal:
+```
+nvcc --version
+```
+Once you have your CUDA version, visit the [PyTorch official installation guide](https://pytorch.org/get-started/previous-versions/) to find the PyTorch version that corresponds to your CUDA version, for example:
+```
+conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+#### STEP2: Clone Repository
+```
+git clone https://github.com/hilab-open-source/WatchYourMouth.git
+```
+Compile the [Pointnet2](https://github.com/facebookresearch/votenet/tree/main/pointnet2) CUDA layers with the following code:
+```
+cd WatchYourMouth/modules
+pip install .
+```
+#### STEP3: Download the Dataset
+Please download the dataset [HERE](https://drive.google.com/drive/folders/174mlRrNpxAdqMASRp7cAU4d0iCTQk7SA) and store it in the directory.
+
+#### STEP4: Start Training
+Update the dataset path to the location where your dataset is stored in this [line](https://github.com/hilab-open-source/WatchYourMouth/blob/ebda2232ab9efbe4d31c941b694d9d8ca1172ff4/train_sentences.py#L210), and start training with the following code:
+```
+cd WatchYourMouth/
+python train_sentences.py
+```
 
 ## Citation
 
 ```bibtex
-@inproceedings{wang2025invisibility,
-  title={Invisibility Cloak: Personalized Smartwatch-Guided Camera Obfuscation},
-  author={Wang, Xue and Zhang, Yang},
-  booktitle={Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology.},
+@inproceedings{wang2024watch,
+  title={Watch Your Mouth: Silent Speech Recognition with Depth Sensing},
+  author={Wang, Xue and Su, Zixiong and Rekimoto, Jun and Zhang, Yang},
+  booktitle={Proceedings of the CHI Conference on Human Factors in Computing Systems},
   pages={1--15},
-  year={2025}
+  year={2024}
 }
 ```
