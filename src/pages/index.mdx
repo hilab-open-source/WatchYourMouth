@@ -1,0 +1,116 @@
+---
+layout: ../layouts/Layout.astro
+title: "Invisibility Cloak: Personalized Smartwatch-Guided Camera Obfuscation"
+description: "Invisibility Cloak: Personalized Smartwatch-Guided Camera Obfuscation"
+favicon: IC_icon.svg
+thumbnail: website_preview_v2.png
+---
+
+import Header from "../components/Header.astro";
+import Video from "../components/Video.astro";
+import HighlightedSection from "../components/HighlightedSection.astro";
+import SmallCaps from "../components/SmallCaps.astro";
+import Figure from "../components/Figure.astro";
+import Image from "../components/Image.astro";
+import TwoColumns from "../components/TwoColumns.astro";
+import YouTubeVideo from "../components/YouTubeVideo.astro";
+import LaTeX from "../components/LaTeX.astro";
+
+import { ImageComparison } from "../components/ImageComparison.tsx";
+
+import outside from "../assets/website_video_cut.mp4";
+import transformer from "../assets/teaser_cloak.png";
+import Splat from "../components/Splat.tsx"
+import dogsDiffc from "../assets/dogs-diffc.png"
+import dogsTrue from "../assets/dogs-true.png"
+import association from "../assets/association_flat.png"
+import evalResults from "../assets/eval_results.png"
+
+
+import CodeBlock from "../components/CodeBlock.astro";
+import Table from "../components/Table.astro";
+export const components = {pre: CodeBlock, table: Table}
+
+<Header
+  title={frontmatter.title}
+  authors={[
+    {
+      name: "Xue Wang",
+      url: "https://xueewang.github.io/",
+      institution: "University of California, Los Angeles",
+    },
+    {
+      name: "Yang Zhang",
+      url: "https://yangzhang.dev/",
+      institution: "University of California, Los Angeles",
+    },
+  ]}
+  
+  conference="ACM UIST 2025, Busan, Korea"
+  links={[
+    {
+      name: "Paper",
+      url: "https://hilab.dev/research/InvisibilityCloak/InvisibilityCloak.pdf",
+      icon: "ri:file-pdf-2-line",
+    },
+    {
+      name: "Code",
+      url: "https://github.com/hilab-open-source/InvisibilityCloak",
+      icon: "ri:github-line",
+    },
+    {
+      name: "Video",
+      url: "https://youtu.be/-UlUI3DfKUE?si=aFX4f0ZA3DlZrtTv",
+      icon: "ri:live-line",
+    },
+    {
+      name: "Dataset",
+      url: "https://drive.google.com/drive/folders/1caPPtjg4dHysmkLXPLz_XsJEdVblDA6h?usp=drive_link",
+      icon: "ri:hard-drive-3-line"
+    }
+  ]}
+  />
+
+<Video source={outside} />
+
+
+## Abstract
+
+Cameras are in their golden age due to recent advances in visual AI techniques that significantly extend the applicability and accuracy of vision-based applications including healthcare, entertainment, and security. In public environments, individuals usually have different and changing privacy preferences against their visual information being shared with other entities. To accommodate these varying user needs for visual privacy, we created ***Invisibility Cloak***, a camera obfuscation technique leveraging inertial signals collected from smartwatches to guide an edge device to remove visual information from camera recordings before they are streamed out for cloud-based inferences. Specifically, a smartwatch user can select an obfuscation level that fits their privacy preference in that context and cameras in the environment will use smartwatch signals to identify that user and remove visual information associated with the user. On the conceptual level, our system demonstrates a privacy design rationale which removes information to be shared with a broader internet infrastructure (i.e., cloud) by providing more information to a trusted local camera system (i.e., camera sensor + edge computing device). We developed a custom data-association pipeline and collected data from real-world configurations. Evaluation of our pipeline indicates a user identification accuracy of 95.48\% among 10 individuals when our system is provided with only 2 seconds of data. 
+
+## System Overview
+<Figure>
+  <Image slot="figure" source={transformer} altText="Our system consists of a smartwatch app that streams IMU signals and obfuscation requests to an edge device, which runs our user-device association algorithm." />
+  <span slot="caption" class="block text-left">
+  Figure 1: Our system consists of a smartwatch app that streams IMU signals and obfuscation requests to an edge device, which runs our user-device association algorithm. This system operates under the following standard security assumptions: all wearable devices are fully compatible with the local camera system, and data on the edge device is secure from unauthorized access and cyber-attacks prior to transmission to the cloud.
+  </span>
+</Figure>
+
+## System Evaluation
+<Figure>
+  <Image slot="figure" source={association} altText="IDP across the three evaluation configurations." />
+  <span slot="caption" class="block text-left">
+  Figure 2: IDP across the three evaluation configurations. Left: Within-user evaluation results on the In-Lab dataset across four scenarios. Middle: Cross-user evaluation on the In-Lab dataset, trained on data from 5 participants and tested on the remaining 5. Right: Cross-scene evaluation on the In-the-Wild dataset with different activity sets.
+  </span>
+</Figure>
+
+<Figure>
+  <Image slot="figure" source={evalResults} altText="IDP across the three evaluation configurations." />
+  <span slot="caption" class="block text-left">
+  Figure 3: A) Effect of window length on user-device association. B) Effect of handedness on user-device association. C) Adjusted SUS Item Scores (0-4 scaled).
+  </span>
+</Figure>
+
+
+
+## Citation
+
+```bibtex
+@inproceedings{wang2025invisibility,
+  title={Invisibility Cloak: Personalized Smartwatch-Guided Camera Obfuscation},
+  author={Wang, Xue and Zhang, Yang},
+  booktitle={Proceedings of the 38th Annual ACM Symposium on User Interface Software and Technology.},
+  pages={1--15},
+  year={2025}
+}
+```
